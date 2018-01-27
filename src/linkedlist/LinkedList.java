@@ -26,6 +26,9 @@ public class LinkedList {
         }
     }
     
+    /**
+     * Mission: print linked list node's data from head to root
+     */
     public void printLinkedList(){
         LinkedListNode temp =head;
         System.out.println();
@@ -41,6 +44,7 @@ public class LinkedList {
      */
     public boolean search(int data) {
         LinkedListNode temp = head;
+        System.out.println("\n\nSearching " +data+ " on the linked list");
         boolean isExist = false;
 
         while (temp != null) {
@@ -52,8 +56,11 @@ public class LinkedList {
             temp = temp.next;
         }
         if (isExist) {
-            System.out.print("\n"+data+ " Found in Bulk ");
+            System.out.println("\n"+data+ " Found in the Linked List ");
             return true;
+        }
+        else{
+            System.out.println("\n"+data+ " Can not found in the Linked List ");
         }
         
         return false;
@@ -66,7 +73,7 @@ public class LinkedList {
     public void deleteOneNode(int data) {
         boolean isExist = search(data);
         boolean isDeleted = false;
-        
+        System.out.println("\n\nDeleting " +data+ " on the linked list");
         // when to be deleted node is head, getting next of the head as head is enough
         if (head.getData() == data) {
             LinkedListNode temp = head;

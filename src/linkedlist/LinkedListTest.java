@@ -5,6 +5,10 @@
  */
 package linkedlist;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author OMER
@@ -18,14 +22,10 @@ public class LinkedListTest {
         // TODO code application logic here
         
         
-        LinkedList linkedList = new LinkedList();
+        LinkedList linkedList = linkedLCreator();
         
         
-        linkedList.insert(10);
-        linkedList.insert(20);
-        linkedList.insert(30);
-        linkedList.insert(40);
-        linkedList.insert(50);
+        
         
         
         linkedList.printLinkedList();
@@ -37,6 +37,24 @@ public class LinkedListTest {
         linkedList.printLinkedList();
         
         
+    }
+    
+    
+    
+    public static LinkedList linkedLCreator() {
+        LinkedList linkedList = new LinkedList();
+        try {
+            FileReader fileReader = new FileReader("data/input.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String item;
+            while ((item = bufferedReader.readLine()) != null) {
+                int data = Integer.parseInt(item);
+                linkedList.insert(data);
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
+        return linkedList;
     }
     
 }
